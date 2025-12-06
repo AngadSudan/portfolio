@@ -16,6 +16,11 @@ const projectSchema = new Schema(
       type: [String],
       default: [],
     },
+    
+    technology: {
+      type: [String],
+      default: [],
+    },
 
     thumbnail: {
       type: String,

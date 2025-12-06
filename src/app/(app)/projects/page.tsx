@@ -1,8 +1,10 @@
-import React from 'react'
+import V1Project from '@/components/Projects/v1/V1Project'
 
 function page() {
   return (
-    <div>page</div>
+    <div>
+      <V1Project />
+    </div>
   )
 }
 
