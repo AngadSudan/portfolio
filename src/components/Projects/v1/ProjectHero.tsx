@@ -62,10 +62,10 @@ export default function ProjectHero() {
       </div>
 
       {/* Dark gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/30 to-gray-900/80 z-10"></div>
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-gray-900/30 to-gray-900/80 z-10"></div>
 
       {/* Center content */}
-      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
