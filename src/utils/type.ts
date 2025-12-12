@@ -11,3 +11,13 @@ export interface Project {
     updatedAt:string;
     "__v"?:number;
 };
+
+export interface ProjectBody{
+    name:string;
+    description:string;
+    tags: string[];
+    technology:string[];
+    thumbnail:string;
+    github_link:string;
+    live_link?:string;
+}

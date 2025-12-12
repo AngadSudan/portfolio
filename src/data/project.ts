@@ -1,5 +1,5 @@
 export const PROJECT_DATA = [
-    ,{
+    {
         "name": "Octodock",
         "description": "Octodock is an AI-powered developer tool that automates backend code generation,  and deployment readiness, with seamless GitHub integration for efficient, and production-ready development. Build with a scalable architechture in mind. Deployed to Microsoft Store.",
         "tags": ["no-code","saas","backend-automater","deployment-automater"],

@@ -2,19 +2,31 @@
 import { motion } from "framer-motion";
 
 const PROJECTS = [
-  {url:"https://res.cloudinary.com/djy3ewpb8/image/upload/v1763095938/Screenshot_from_2025-11-14_10-20-55_pvvfnd.png"}, 
-  {url:"https://res.cloudinary.com/djy3ewpb8/image/upload/v1751985439/Screenshot_2025-07-08_200132_rce3nc.png"}, 
-  {url:"https://res.cloudinary.com/djy3ewpb8/image/upload/v1745761645/Screenshot_2025-04-27_191353_fihjpq.png"}, 
-  {url:"https://res.cloudinary.com/djy3ewpb8/image/upload/v1735637945/pemu90stp7myka9pc71q.png"}, 
-  {url:"https://res.cloudinary.com/djy3ewpb8/image/upload/v1747402834/Screenshot_2025-05-16_190619_tu9c5s.png"}, 
-  {url:"https://res.cloudinary.com/djy3ewpb8/image/upload/v1735638125/owqol6jkkwjp0efasrrs.png"}
+  {
+    url: "https://res.cloudinary.com/djy3ewpb8/image/upload/v1763095938/Screenshot_from_2025-11-14_10-20-55_pvvfnd.png",
+  },
+  {
+    url: "https://res.cloudinary.com/djy3ewpb8/image/upload/v1751985439/Screenshot_2025-07-08_200132_rce3nc.png",
+  },
+  {
+    url: "https://res.cloudinary.com/djy3ewpb8/image/upload/v1745761645/Screenshot_2025-04-27_191353_fihjpq.png",
+  },
+  {
+    url: "https://res.cloudinary.com/djy3ewpb8/image/upload/v1735637945/pemu90stp7myka9pc71q.png",
+  },
+  {
+    url: "https://res.cloudinary.com/djy3ewpb8/image/upload/v1747402834/Screenshot_2025-05-16_190619_tu9c5s.png",
+  },
+  {
+    url: "https://res.cloudinary.com/djy3ewpb8/image/upload/v1735638125/owqol6jkkwjp0efasrrs.png",
+  },
 ];
 
 export default function ProjectHero() {
   const rows = [
     { projects: [...PROJECTS, ...PROJECTS], direction: 1, delay: 0 },
     { projects: [...PROJECTS, ...PROJECTS], direction: -1, delay: 20 },
-    { projects: [...PROJECTS, ...PROJECTS], direction: 1, delay: 10 }
+    { projects: [...PROJECTS, ...PROJECTS], direction: 1, delay: 10 },
   ];
 
   return (
@@ -40,9 +52,7 @@ export default function ProjectHero() {
                 key={`${rowIndex}-${index}`}
                 className="h-[200px] w-[350px] rounded-lg overflow-hidden shadow-2xl shrink-0"
                 animate={{
-                  y: index % 2 === 0
-                    ? [0, -15, 0, 15, 0] 
-                    : [15, 0, -15, 0, 15],
+                  y: index % 2 === 0 ? [0, -15, 0, 15, 0] : [15, 0, -15, 0, 15],
                 }}
                 transition={{
                   duration: 6 + (index % 3),
@@ -72,7 +82,7 @@ export default function ProjectHero() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <motion.h1 
+          <motion.h1
             className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-4"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -80,14 +90,14 @@ export default function ProjectHero() {
           >
             Welcome To Projects
           </motion.h1>
-          
+
           <motion.p
             className="text-xl md:text-2xl text-gray-300 font-light tracking-wide"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Want to see my Projects or Have a Project idea?
+            You Might stay here for a long time, play some music !
           </motion.p>
 
           <motion.div
@@ -96,12 +106,17 @@ export default function ProjectHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <a href="#project1" className="px-8 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-200 transition-colors">
+            <a
+              href="#project1"
+              className="px-8 py-3 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-200 transition-colors"
+            >
               Happy Scrolling
             </a>
             <button
               className="px-8 py-3 border-2 border-white text-white rounded-full font-semibold hover:bg-white hover:text-gray-900 transition-all"
-              onClick={() => window.location.href = "mailto:angadsudan453@gmail.com"}
+              onClick={() =>
+                (window.location.href = "mailto:angadsudan453@gmail.com")
+              }
             >
               Contact Me
             </button>

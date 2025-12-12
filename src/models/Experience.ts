@@ -42,6 +42,11 @@ const experienceSchema = new Schema(
       default: "ongoing",
     },
 
+    job_type:{
+      type:String,
+      enum:["inplace","remote"]
+    },
+
     start_date: {
       type: Date,
       required: true,

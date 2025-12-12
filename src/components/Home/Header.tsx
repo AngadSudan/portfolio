@@ -52,7 +52,7 @@ function Header() {
 
       {/* Menu Panel */}
       <div
-        className={`fixed z-50 top-0 right-0 h-screen w-80 bg-linear-to-br from-zinc-900 via-zinc-900 to-zinc-800 shadow-2xl transition-transform duration-500 ease-out ${
+        className={`fixed z-40 top-0 right-0 h-screen w-80 bg-linear-to-br from-zinc-900 via-zinc-900 to-zinc-800 shadow-2xl transition-transform duration-500 ease-out ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -102,3 +102,4 @@ function Header() {
 }
 
 export default Header;
+
