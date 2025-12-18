@@ -10,7 +10,7 @@ function HacktoberFest() {
         Hacktoberfest Contributions
       </h2>
 
-      <div className="grid grid-cols-2 w-full gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-12">
         {badges.map((badge, index) => {
           return (
             <div key={index} className="flex justify-between gap-6">

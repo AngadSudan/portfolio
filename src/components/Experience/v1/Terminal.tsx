@@ -6,13 +6,12 @@ import { useState, useRef, useEffect } from "react";
 
 function Terminal() {
   const [hovered, setHovered] = useState(false);
-  const [size, setSize] = useState({ width: 600, height: 400 });
-  const [position, setPosition] = useState({ x: 320, y: 64 });
+  const [size, setSize] = useState({ width: 800, height: 450 });
+  const [position, setPosition] = useState({ x: 360, y: 250 });
   const [command, setCommand] = useState("");
   const [commandHistory, setCommandHistory] = useState<React.ReactNode[]>([]);
   const outputRef = useRef<HTMLDivElement>(null);
 
-  // Auto-scroll to bottom when commandHistory changes
   useEffect(() => {
     if (outputRef.current) {
       outputRef.current.scrollTop = outputRef.current.scrollHeight;
@@ -26,7 +25,6 @@ function Terminal() {
     const input = command.trim();
     const lowerInput = input.toLowerCase();
 
-    // Show prompt + user input
     setCommandHistory((prev) => [
       ...prev,
       <div key={`input-${prev.length}`} className="flex gap-2">
@@ -116,10 +114,24 @@ function Terminal() {
               <span
                 onClick={() => {
                   setHovered(false);
+                  setPosition({ x: 360, y: 250 });
+                  setSize({
+                    width: 800,
+                    height: 450,
+                  });
                 }}
                 className="h-3 w-3 rounded-full cursor-pointer bg-yellow-400"
               />
-              <span className="h-3 w-3 cursor-pointer rounded-full bg-green-500" />
+              <span
+                onClick={() => {
+                  setPosition({ x: 0, y: 0 });
+                  setSize({
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                  });
+                }}
+                className="h-3 w-3 cursor-pointer rounded-full bg-green-500"
+              />
             </div>
 
             <div className="text-sm font-semibold text-white/80 tracking-wide">
@@ -132,9 +144,10 @@ function Terminal() {
           {/* Terminal Content */}
           <div
             style={{
-              overflowY: "auto",
-              scrollbarWidth: "none", // Firefox
-              msOverflowStyle: "none", // IE / old Edge
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+              //@ts-ignore
+              WebkitScrollbar: { display: "none" },
             }}
             className="flex no-scrollbar flex-col h-[90%] relative p-4 text-white/70"
           >
@@ -180,14 +193,19 @@ function Terminal() {
           />
         </motion.div>
       ) : (
-        <div className="absolute top-0 left-0 h-screen w-full grid place-items-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.5 }}
+          className="absolute top-0 left-0 h-screen w-full grid place-items-center"
+        >
           <button
             onClick={() => setHovered(true)}
-            className="z-50 border-2 border-white rounded-md bg-black text-white px-4 py-2"
+            className="z-20 border-2 border-white rounded-md bg-black text-white px-4 py-2"
           >
             Open Terminal
           </button>
-        </div>
+        </motion.div>
       )}
     </>
   );

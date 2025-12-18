@@ -4,7 +4,7 @@ function Others() {
   return (
     <div>
       {OTHER_DATA.map((data: any, index: number) => {
-        return <ProjectCard experience={data} />;
+        return <ProjectCard key={index} experience={data} />;
       })}
     </div>
   );

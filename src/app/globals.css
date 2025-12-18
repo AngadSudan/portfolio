@@ -1,10 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+html,
+body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
 @custom-variant dark (&:is(.dark *));
 html {
   scroll-behavior: smooth;
