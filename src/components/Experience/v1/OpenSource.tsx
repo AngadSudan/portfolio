@@ -1,7 +1,13 @@
-import React from "react";
+import HacktoberFest from "./HacktoberFest";
+import PR from "./PR";
 
 function OpenSource() {
-  return <div>OpenSource</div>;
+  return (
+    <div>
+      <PR />
+      <HacktoberFest />
+    </div>
+  );
 }
 
 export default OpenSource;
