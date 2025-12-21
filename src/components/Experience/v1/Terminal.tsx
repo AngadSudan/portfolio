@@ -59,7 +59,6 @@ function Terminal() {
           </div>,
         ]);
         break;
-
       case Boolean(COMMAND_MAP[lowerInput]):
         setCommandHistory((prev) => [
           ...prev,
