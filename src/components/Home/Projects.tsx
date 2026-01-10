@@ -1,13 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function Projects() {
+export default function Projects() {
   return (
-    <div className="relative h-screen w-full">
-      <h1 className="text-7xl text-center font-bold text-transparent bg-clip-text bg-linear-to-r from-black via-gray-600 to-gray-300">
+    <div className="relative min-h-[120svh] w-full overflow-hidden">
+      <h1 className="text-7xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-black via-gray-600 to-gray-300">
         PROJECTS
       </h1>
-      <div className="w-[80%] mx-auto h-1 mt-4 bg-black"></div>
+
+      <div className="w-[80%] mx-auto h-1 mt-4 bg-black" />
+
       <HangingProject
         href="/projects"
         top="top-28"
@@ -15,9 +18,53 @@ function Projects() {
         rotate="-rotate-2"
         threadHeight={100}
       >
-        <h1 className="text-white">DAKSH</h1>
-      </HangingProject>
+        <div className="bg-white">
+          <Image
+            src="https://res.cloudinary.com/djy3ewpb8/image/upload/v1745761645/Screenshot_2025-04-27_191353_fihjpq.png"
+            height={200}
+            width={500}
+            alt="Daksh project preview"
+            className="w-full h-auto object-cover"
+          />
 
+          <div className="p-4 text-sm text-gray-800">
+            <h2 className="font-bold text-lg mb-2">Daksh</h2>
+            <p>
+              A powerful AI-driven productivity platform for teachers and
+              students. It centralizes task management, intelligent notes,
+              planning, document parsing, and AI assistance.
+            </p>
+          </div>
+        </div>
+      </HangingProject>
+      <HangingProject
+        href="/projects"
+        top="top-32"
+        left="right-[1%]"
+        rotate="-rotate-1"
+        threadHeight={100}
+      >
+        <div className="bg-white">
+          <Image
+            src="https://res.cloudinary.com/djy3ewpb8/image/upload/v1763095938/Screenshot_from_2025-11-14_10-20-55_pvvfnd.png"
+            height={200}
+            width={500}
+            alt="Daksh project preview"
+            className="w-full h-auto object-cover"
+          />
+
+          <div className="p-4 text-sm text-gray-800">
+            <h2 className="font-bold text-lg mb-2">Octodock</h2>
+            <p>
+              Octodock is an AI-powered developer tool that automates backend
+              code generation, and deployment readiness, with seamless GitHub
+              integration for efficient, and production-ready development. Build
+              with a scalable architechture in mind. Deployed to Microsoft
+              Store.
+            </p>
+          </div>
+        </div>
+      </HangingProject>
       <HangingProject
         href="/projects"
         top="top-40"
@@ -25,19 +72,38 @@ function Projects() {
         rotate="rotate-1"
         threadHeight={250}
       >
-        <h1 className="text-white">CLERK</h1>
-      </HangingProject>
+        <div className="bg-white h-fit ">
+          <Image
+            src="https://res.cloudinary.com/djy3ewpb8/image/upload/v1751985439/Screenshot_2025-07-08_200132_rce3nc.png"
+            height={200}
+            width={500}
+            alt="Daksh project preview"
+            className="w-full h-auto object-cover"
+          />
 
-      <HangingProject
-        href="/projects"
-        top="top-32"
-        left="right-[1%]"
-        rotate="-rotate-1"
-        threadHeight={100}
-      />
+          <div className="p-4 text-sm text-gray-800">
+            <h2 className="font-bold text-lg mb-2">Dr. Web</h2>
+            <p>
+              Dr. Web is a real-time monitoring application based on top of
+              prometheus. Just add the SDK into your backend code and it
+              automatically generates a dashboard for you allowing you to view
+              the anaytics dashboard in realtime via server sent events.
+            </p>
+          </div>
+        </div>
+      </HangingProject>
     </div>
   );
 }
+
+type HangingProjectProps = {
+  href: string;
+  top?: string;
+  left?: string;
+  rotate?: string;
+  threadHeight?: number;
+  children?: React.ReactNode;
+};
 
 function HangingProject({
   href,
@@ -46,7 +112,7 @@ function HangingProject({
   rotate = "rotate-1",
   threadHeight = 120,
   children,
-}: any) {
+}: HangingProjectProps) {
   return (
     <div
       className={`absolute ${top} ${left} group`}
@@ -68,11 +134,12 @@ function HangingProject({
       <Link
         href={href}
         className={`
+          relative
           block
-          h-[450px] w-[500px]
-          bg-black
-          border-4 border-gray-700
+          w-[500px]
+          border border-gray-700
           shadow-xl
+          bg-white
           ${rotate}
           transition-transform
           duration-300
@@ -87,5 +154,3 @@ function HangingProject({
     </div>
   );
 }
-
-export default Projects;
