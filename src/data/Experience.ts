@@ -1,3 +1,7 @@
+import ieee from "@/../public/ieee.jpeg";
+import tbb from "@/../public/tbb.jpeg";
+import osc from "@/../public/osc.jpeg";
+
 export const EXPERIENCE_DATA = [
   {
     title: "Full Stack Developer Intern",
@@ -14,8 +18,7 @@ export const EXPERIENCE_DATA = [
       },
     ],
     company: "TBB Media",
-    company_icon:
-      "https://media.licdn.com/dms/image/v2/D560BAQHYbcEZDg9xTA/company-logo_200_200/B56ZmAoVzVI4AI-/0/1758799683736/thebrainburners_logo?e=1767225600&v=beta&t=DVopYTcCDv5u2-9ScV6ge7iE-RrKFThiSLWpLvDiJqI",
+    company_icon: tbb,
     status: "completed",
     job_type: "remote",
     job_classification: "internship",
@@ -43,8 +46,7 @@ export const OTHER_DATA = [
       },
     ],
     company: "Open Source Chandigarh",
-    company_icon:
-      "https://media.licdn.com/dms/image/v2/D560BAQGtrdv7r7GWpQ/company-logo_200_200/B56ZhV1NZSHMAI-/0/1753786669761?e=1767225600&v=beta&t=wxLisHoZ3oDEpcq82R-BBJaXYbfqz30n_Vzg9qNk7E4",
+    company_icon: osc,
     status: "ongoing",
     job_type: "remote",
     job_classification: "others",
@@ -66,8 +68,7 @@ export const OTHER_DATA = [
       },
     ],
     company: "Open Source Chandigarh",
-    company_icon:
-      "https://media.licdn.com/dms/image/v2/D560BAQGtrdv7r7GWpQ/company-logo_200_200/B56ZhV1NZSHMAI-/0/1753786669761?e=1767225600&v=beta&t=wxLisHoZ3oDEpcq82R-BBJaXYbfqz30n_Vzg9qNk7E4",
+    company_icon: osc,
     status: "completed",
     job_type: "remote",
     job_classification: "others",
@@ -90,8 +91,7 @@ export const OTHER_DATA = [
       },
     ],
     company: "IEEE CIET Student Branch",
-    company_icon:
-      "https://media.licdn.com/dms/image/v2/C560BAQEWvDbdxyr5OQ/company-logo_200_200/company-logo_200_200/0/1653843664271?e=1767225600&v=beta&t=-t1M-BDQhiX7CzTNTrCAbz4FAlLl66l4SAnzBL-tcsw",
+    company_icon: ieee,
     status: "completed",
     job_type: "remote",
     job_classification: "others",
