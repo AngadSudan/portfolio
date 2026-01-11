@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { Footer } from "../modem-animated-footer";
 import Image from "next/image";
@@ -14,17 +14,17 @@ function FooterComponent() {
     {
       label: "linkedin",
       icon: <FaLinkedin className=" text-3xl" />,
-      href: "https://leetcode.com/u/angad_sudan",
+      href: "https://www.linkedin.com/in/angadsudan/",
     },
     {
       label: "Github",
       icon: <FaGithub className=" text-3xl" />,
-      href: "https://leetcode.com/u/angad_sudan",
+      href: "https://github.com/AngadSudan",
     },
     {
       label: "Medium",
-      icon: <SiLeetcode className=" text-3xl" />,
-      href: "https://leetcode.com/u/angad_sudan",
+      icon: <FaMedium className=" text-3xl" />,
+      href: "https://medium.com/@angadsudan453",
     },
   ];
 

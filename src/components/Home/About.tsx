@@ -1,10 +1,8 @@
 "use client";
 
-import { Mail } from "lucide-react";
 import Link from "next/link";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import { GradientButton } from "../ui/gradient-button";
 
 function About({ setOpenAbout }: any) {
   const SOCIALS = [
@@ -16,17 +14,17 @@ function About({ setOpenAbout }: any) {
     {
       name: "linkedin",
       icon: <FaLinkedin className="text-white text-5xl" />,
-      url: "https://leetcode.com/u/angad_sudan",
+      url: "https://www.linkedin.com/in/angadsudan/",
     },
     {
       name: "Github",
       icon: <FaGithub className="text-white text-5xl" />,
-      url: "https://leetcode.com/u/angad_sudan",
+      url: "https://github.com/AngadSudan",
     },
     {
       name: "Medium",
-      icon: <SiLeetcode className="text-white text-5xl" />,
-      url: "https://leetcode.com/u/angad_sudan",
+      icon: <FaMedium className="text-white text-5xl" />,
+      url: "https://medium.com/@angadsudan453",
     },
   ];
   return (

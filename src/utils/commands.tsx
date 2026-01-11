@@ -42,8 +42,18 @@ export const COMMAND_MAP: any = {
       </table>
     </div>
   ),
-  neofetch: <div></div>,
-  me: <div></div>,
+  neofetch: (
+    <pre className="font-mono text-green-400 leading-none whitespace-pre">
+      {String.raw`
+ █████╗ ███╗   ██╗ ██████╗  █████╗ ██████╗ 
+██╔══██╗████╗  ██║██╔════╝ ██╔══██╗██╔══██╗
+███████║██╔██╗ ██║██║  ███╗███████║██║  ██║
+██╔══██║██║╚██╗██║██║   ██║██╔══██║██║  ██║
+██║  ██║██║ ╚████║╚██████╔╝██║  ██║██████╔╝
+╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ 
+`}
+    </pre>
+  ),
   "ls jobs": (
     <table className="w-full">
       <th>

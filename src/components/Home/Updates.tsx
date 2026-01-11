@@ -1,63 +1,186 @@
-import React from "react";
-import { TestimonialComponent } from "../testimonal-slider";
+"use client";
 
-function Updates() {
-  const DUMMY_UPDATES = [
-    {
-      date: "2026-01-02",
-      title: "3D Carousel Finally Feels Right",
-      mood: "productive",
-      content:
-        "Spent most of today fine-tuning the rotation math and focus behavior of the 3D carousel. The depth finally feels natural and readable from every angle. Small tweak, huge visual difference.",
-    },
-    {
-      date: "2026-01-03",
-      title: "Understanding Motion, Not Fighting It",
-      mood: "learning",
-      content:
-        "Took a step back to really understand Framer Motion’s transform pipeline. Once I stopped stacking rotateY and transform manually, things started to click. Mental model upgrade.",
-    },
-    {
-      date: "2026-01-04",
-      title: "Hit a Wall with Layout Shifts",
-      mood: "blocked",
-      content:
-        "Noticed subtle layout jumps when transitioning between focused states. Tried a few fixes, but nothing felt clean yet. Might need to rethink how height is managed entirely.",
-    },
-    {
-      date: "2026-01-05",
-      title: "Visual Hierarchy Pass on Cards",
-      mood: "productive",
-      content:
-        "Refined card spacing, typography, and accents. Reduced noise and let the content breathe. The cards now feel intentional instead of decorative.",
-    },
-    {
-      date: "2026-01-06",
-      title: "Documenting the Why",
-      mood: "learning",
-      content:
-        "Started writing down why certain UI decisions exist. It’s slowing me down slightly, but it’s making the system far more coherent. Future me will thank me.",
-    },
-    {
-      date: "2026-01-07",
-      title: "Minor Bug, Major Distraction",
-      mood: "blocked",
-      content:
-        "A small drag issue kept stealing focus today. It’s not critical, but it breaks the illusion. Parking it for now and moving forward.",
-    },
-    {
-      date: "2026-01-08",
-      title: "Momentum Is Back",
-      mood: "productive",
-      content:
-        "Cleaned up a few lingering bugs and shipped a polished version of the updates section. Everything feels calmer, more deliberate. Ending the day satisfied.",
-    },
-  ];
+import * as React from "react";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { DIcons } from "dicons";
+import { useAnimate } from "framer-motion";
+
+import { Button, buttonVariants } from "@/components/ui/button";
+
+import {
+  HighlighterItem,
+  HighlightGroup,
+  Particles,
+} from "@/components/ui/highlighter";
+
+export default function Updates() {
+  const [scope, animate] = useAnimate();
+
+  React.useEffect(() => {
+    animate(
+      [
+        ["#pointer", { left: 200, top: 60 }, { duration: 0 }],
+        ["#javascript", { opacity: 1 }, { duration: 0.3 }],
+        [
+          "#pointer",
+          { left: 50, top: 102 },
+          { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+        ],
+        ["#javascript", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
+        ["#react-js", { opacity: 1 }, { duration: 0.3 }],
+        [
+          "#pointer",
+          { left: 224, top: 170 },
+          { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+        ],
+        ["#react-js", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
+        ["#typescript", { opacity: 1 }, { duration: 0.3 }],
+        [
+          "#pointer",
+          { left: 88, top: 198 },
+          { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+        ],
+        ["#typescript", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
+        ["#next-js", { opacity: 1 }, { duration: 0.3 }],
+        [
+          "#pointer",
+          { left: 200, top: 60 },
+          { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+        ],
+        ["#next-js", { opacity: 0.5 }, { at: "-0.3", duration: 0.1 }],
+      ],
+      {
+        repeat: Number.POSITIVE_INFINITY,
+      }
+    );
+  }, [animate]);
   return (
-    <div>
-      <TestimonialComponent testimonials={DUMMY_UPDATES as any} />
-    </div>
+    <section className="relative mx-auto w-5xl  ">
+      <HighlightGroup className="group h-full">
+        <div
+          className="group/item h-full md:col-span-6 lg:col-span-12"
+          data-aos="fade-down"
+        >
+          <HighlighterItem className="rounded-3xl p-6">
+            <div className="relative z-20 h-full w-full overflow-hidden rounded-3xl border border-black bg-white dark:border-slate-800 dark:bg-black">
+              <Particles
+                className="absolute inset-0 -z-10 opacity-10 transition-opacity duration-1000 ease-in-out group-hover/item:opacity-100"
+                quantity={200}
+                color={"#555555"}
+                vy={-0.2}
+              />
+              <div className="flex justify-center">
+                <div className="flex h-full flex-col justify-center gap-10 p-4 md:h-[300px] md:flex-row">
+                  <div
+                    className="relative mx-auto h-[270px] w-[300px] md:h-[270px] md:w-[300px]"
+                    ref={scope}
+                  >
+                    <DIcons.AiLaptop className="absolute left-1/2 top-1/2 h-6 w-6 -translate-x-1/2 -translate-y-1/2" />
+                    <div
+                      id="next-js"
+                      className="absolute bottom-12 left-14 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
+                    >
+                      Frontend Engineering
+                    </div>
+                    <div
+                      id="react-js"
+                      className="absolute left-2 top-20 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
+                    >
+                      Backend Development
+                    </div>
+                    <div
+                      id="typescript"
+                      className="absolute bottom-20 right-1 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
+                    >
+                      Web Application
+                    </div>
+                    <div
+                      id="javascript"
+                      className="absolute right-12 top-10 rounded-3xl border border-slate-400 bg-slate-200 px-2 py-1.5 text-xs opacity-50 dark:border-slate-600 dark:bg-slate-800"
+                    >
+                      Scalable Product
+                    </div>
+
+                    <div id="pointer" className="absolute">
+                      <svg
+                        width="16.8"
+                        height="18.2"
+                        viewBox="0 0 12 13"
+                        className="fill-red-500"
+                        stroke="white"
+                        strokeWidth="1"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          clipRule="evenodd"
+                          d="M12 5.50676L0 0L2.83818 13L6.30623 7.86537L12 5.50676V5.50676Z"
+                        />
+                      </svg>
+                      <span className="bg-ali relative -top-1 left-3 rounded-3xl px-2 py-1 text-xs text-white">
+                        Angad
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="-mt-20 flex h-full flex-col justify-center p-2 md:-mt-4 md:ml-10 md:w-[400px]">
+                    <div className="flex flex-col items-center">
+                      <h3 className="mt-6   pb-1 font-bold ">
+                        <span className="text-2xl md:text-4xl">
+                          Any great idea up your mind?
+                        </span>
+                      </h3>
+                    </div>
+                    <p className="mb-4 text-black/70">
+                      Feel free to reach out to me!
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Link
+                        href={"mailto:angadsudan453@gmail.com"}
+                        target="_blank"
+                      >
+                        <Button>Book a call</Button>
+                      </Link>
+                      <Link
+                        href="mailto:angadsudan453@gmail.com"
+                        target="_blank"
+                        className={cn(
+                          buttonVariants({
+                            variant: "outline",
+                            size: "icon",
+                          })
+                        )}
+                      >
+                        <span className="flex items-center gap-1">
+                          <DIcons.Mail strokeWidth={1} className="h-5 w-5" />
+                        </span>
+                      </Link>
+                      <Link
+                        href="https://wa.me/916284645754"
+                        target="_blank"
+                        className={cn(
+                          buttonVariants({
+                            variant: "outline",
+                            size: "icon",
+                          })
+                        )}
+                      >
+                        <span className="flex items-center gap-1">
+                          <DIcons.WhatsApp
+                            strokeWidth={1}
+                            className="h-4 w-4"
+                          />
+                        </span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </HighlighterItem>
+        </div>
+      </HighlightGroup>
+    </section>
   );
 }
-
-export default Updates;

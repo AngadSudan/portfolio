@@ -1,4 +1,3 @@
-import Experience from "@/components/Home/Experience";
 import Footer from "@/components/Home/Footer";
 import Header from "@/components/Home/Header";
 import Hero from "@/components/Home/Hero";
@@ -13,7 +12,6 @@ function page() {
       <Hero />
       <IntegrationHero />
       <Projects />
-      <Experience />
       <Updates />
       <Footer />
     </div>

@@ -5,20 +5,20 @@ import { useState } from "react";
 const navLinks = [
   {
     section: "Home",
-    url: "/"
+    url: "/",
   },
   {
     section: "Projects",
-    url: "/projects"
+    url: "/projects",
   },
   {
     section: "Experience",
-    url: "/experience"
+    url: "/experience",
   },
-  {
-    section: "Updates",
-    url: "/updates"
-  },
+  // {
+  //   section: "Updates",
+  //   url: "/updates"
+  // },
 ];
 
 function Header() {
@@ -28,7 +28,9 @@ function Header() {
       {/* Menu Button */}
       <div className="fixed z-50 top-8 right-8">
         <button
-          onClick={() =>{setMenuOpen(!menuOpen)}}
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+          }}
           className="group relative w-14 h-14 rounded-full bg-linear-to-br from-zinc-900 to-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-zinc-700/50"
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
@@ -64,7 +66,9 @@ function Header() {
                 href={nav.url}
                 className="group block py-4 px-6 rounded-lg transition-all duration-300 hover:bg-white/5 relative overflow-hidden"
                 style={{
-                  animation: menuOpen ? `slideIn 0.4s ease-out ${index * 0.1}s both` : 'none'
+                  animation: menuOpen
+                    ? `slideIn 0.4s ease-out ${index * 0.1}s both`
+                    : "none",
                 }}
               >
                 <div className="absolute inset-0 bg-linear-to-r from-blue-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-blue-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500" />
@@ -102,4 +106,3 @@ function Header() {
 }
 
 export default Header;
-

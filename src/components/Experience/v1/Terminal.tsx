@@ -72,7 +72,7 @@ function Terminal() {
         setCommandHistory((prev) => [
           ...prev,
           <div key={`err-${prev.length}`} className="ml-6 text-red-400">
-            Unknown command: {input}
+            Unknown command: {input} use '/help' for knowing the commands
           </div>,
         ]);
     }
