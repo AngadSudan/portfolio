@@ -1,52 +1,50 @@
-import Project from "@/models/Projects";
+import Resource from "@/models/Resources";
 import connectDB from "@/utils/db";
-import { ProjectBody } from "@/utils/type";
+import { ResourceBody } from "@/utils/type";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
     await connectDB();
-    const data: ProjectBody = await req.json();
+    const data: ResourceBody = await req.json();
 
-    const dbProject = await Project.find({
-      where: {
-        github_link: data.github_link,
-      },
+    const dbResource = await Resource.find({
+      title: data.title,
     });
 
-    if (!dbProject)
+    if (dbResource)
       return NextResponse.json(
         {
-          message: "Project already registered",
+          message: "Resource already registered",
         },
         { status: 500 },
       );
 
-    // TODO: add cloudinary with admin dashboard
-    const createdProject = await Project.create({
+    //TODO: add cloudinary with Admin dashboard
+    const createdResource = await Resource.create({
       ...data,
     });
 
-    if (!createdProject)
+    if (!createdResource)
       return NextResponse.json(
         {
-          message: "Project couldn't be registered",
+          message: "Resource couldn't be registered",
         },
         { status: 500 },
       );
 
     return NextResponse.json(
       {
-        message: "Project has been registered",
+        message: "Resource has been registered",
       },
       { status: 200 },
     );
   } catch (error) {
-    console.error("Error fetching projects:", error);
+    console.error("Error fetching Resources:", error);
 
     return NextResponse.json(
       {
-        message: "Unable to upload projects",
+        message: "Unable to upload Resources",
         error: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },

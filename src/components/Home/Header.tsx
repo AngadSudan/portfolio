@@ -15,6 +15,10 @@ const navLinks = [
     section: "Experience",
     url: "/experience",
   },
+  {
+    section: "Resources",
+    url: "/resources",
+  },
   // {
   //   section: "Updates",
   //   url: "/updates"
